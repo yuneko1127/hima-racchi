@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>タスク一覧</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>タスク一覧</h1>
+    </header>
+    <main>
+        <section>
+            <h2>登録されたタスク</h2>
+            <ul class="task-list">
+                {% for task in tasks %}
+                <li>
+                    <span>{{ task.name }}</span>
+                    <span>{{ task.time }}</span>
+                    <button onclick="location.href='/delete_task/{{ loop.index0 }}'; return false;">削除</button>
+                </li>
+                {% endfor %}
+            </ul>
+            <a href="/">戻る</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 タスク管理アプリ</p>
+    </footer>
+</body>
+</html>
