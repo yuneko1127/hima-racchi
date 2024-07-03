@@ -1,3 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: #e3f2fd; /* 薄い青色の背景 */
+}
+
+header {
+    background-color: #1976d2; /* 濃い青色 */
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+
+main {
+    margin-top: 20px;
+}
+
+section {
+    background: #fff;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+section h2 {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #1976d2; /* セクションタイトルの青色 */
+}
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #1976d2; /* フッターの青色 */
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form button {
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+form button {
+    background-color: #1976d2;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #1565c0;
+}
+
+.task-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-list li {
+    background: #fff;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-list li span {
+    flex: 1;
+}
+
+.task-list li button {
+    background-color: #f44336;
+    color: #fff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.task-list li button:hover {
+    background-color: #d32f2f;
+}
 /* リセットCSS */
 * {
     margin: 0;
@@ -53,7 +155,67 @@ footer {
         padding: 40px;
     }
 
+    header h1 {* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        padding: 20px;
+        background-color: #f4f4f4;
+    }
+    
+    header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 0;
+        text-align: center;
+    }
+    
     header h1 {
+        margin: 0;
+        font-size: 24px;
+    }
+    
+    main {
+        margin-top: 20px;
+    }
+    
+    section {
+        background: #fff;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    section h2 {
+        margin-bottom: 10px;
+        font-size: 20px;
+    }
+    
+    footer {
+        text-align: center;
+        margin-top: 20px;
+    }
+    
+    @media (min-width: 600px) {
+        body {
+            padding: 40px;
+        }
+    
+        header h1 {
+            font-size: 32px;
+        }
+    
+        section h2 {
+            font-size: 24px;
+        }
+    }
+    
         font-size: 32px;
     }
 
