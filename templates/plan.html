@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作成された予定</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>作成された予定</h1>
+    </header>
+    <main>
+        <section>
+            <h2>以下のタスクが選ばれました</h2>
+            <ul class="task-list">
+                {% if plan %}
+                    {% for task in plan %}
+                    <li>
+                        <span>{{ task.name }}</span>
+                        <span>{{ task.time }}分</span>
+                    </li>
+                    {% endfor %}
+                {% else %}
+                    <li>適切なタスクの組み合わせが見つかりませんでした。</li>
+                {% endif %}
+            </ul>
+            <a href="/">戻る</a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 タスク管理アプリ</p>
+    </footer>
+</body>
+</html>

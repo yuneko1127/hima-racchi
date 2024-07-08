@@ -15,8 +15,15 @@
             <h2>タスクを入力してください</h2>
             <form action="/add_task" method="post">
                 <input type="text" name="task_name" placeholder="タスク名" required>
-                <input type="time" name="task_time" required>
+                <input type="number" name="task_time" placeholder="タスク時間（分）" required>
                 <button type="submit">追加</button>
+            </form>
+        </section>
+        <section>
+            <h2>予定を作成</h2>
+            <form action="/plan" method="post">
+                <input type="number" name="min_time" placeholder="最小時間（分）" required>
+                <button type="submit">作成</button>
             </form>
         </section>
     </main>

@@ -17,7 +17,7 @@
                 {% for task in tasks %}
                 <li>
                     <span>{{ task.name }}</span>
-                    <span>{{ task.time }}</span>
+                    <span>{{ task.time }}分</span>
                     <button onclick="location.href='/delete_task/{{ loop.index0 }}'; return false;">削除</button>
                 </li>
                 {% endfor %}
