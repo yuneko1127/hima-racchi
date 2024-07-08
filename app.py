@@ -1,4 +1,5 @@
 from flask import Flask, render_template, request, redirect, url_for
+import random
 
 app = Flask(__name__)
 
@@ -19,39 +20,35 @@ def add_task():
 def task_list():
     return render_template('tasks.html', tasks=tasks)
 
+@app.route('/delete_task/<int:index>', methods=['GET'])
+def delete_task(index):
+    if index < len(tasks):
+        del tasks[index]
+    return redirect(url_for('task_list'))
+
 @app.route('/plan', methods=['POST'])
 def create_plan():
-    min_time = int(request.form['min_time'])
-    plan = find_diverse_plan(tasks, min_time)
+    sukima_time = int(request.form['sukima_time'])
+    plan = []
+    tasks_kyukei = [{'name': '休憩', 'time': 1}]
+    tasks_kyukei.extend(tasks)
+    
+    while sukima_time > 0:
+        filtered_tasks = []
+        for task_kyukei in tasks_kyukei:
+            if task_kyukei["time"] <= sukima_time:
+                filtered_tasks.append(task_kyukei)
+        
+        if filtered_tasks:
+            random_task = random.choice(filtered_tasks)
+            print(random_task) #デバッグ
+            plan.append(random_task)
+            sukima_time -= random_task['time']
+        else:
+            break
+    
     return render_template('plan.html', plan=plan)
 
-def find_diverse_plan(tasks, min_time):
-    dp = [float('inf')] * (min_time + 1)
-    dp[0] = 0
-    task_selection = [[] for _ in range(min_time + 1)]
-    task_count = [{} for _ in range(min_time + 1)]
-    
-    for i in range(1, min_time + 1):
-        for task in tasks:
-            if task['time'] <= i:
-                if dp[i - task['time']] + task['time'] < dp[i]:
-                    dp[i] = dp[i - task['time']] + task['time']
-                    task_selection[i] = task_selection[i - task['time']] + [task]
-                    task_count[i] = task_count[i - task['time']].copy()
-                    task_count[i][task['name']] = task_count[i].get(task['name'], 0) + 1
-                elif dp[i - task['time']] + task['time'] == dp[i]:
-                    current_diversity = len(task_count[i])
-                    new_diversity = len(task_count[i - task['time']].copy().keys())
-                    if new_diversity > current_diversity:
-                        dp[i] = dp[i - task['time']] + task['time']
-                        task_selection[i] = task_selection[i - task['time']] + [task]
-                        task_count[i] = task_count[i - task['time']].copy()
-                        task_count[i][task['name']] = task_count[i].get(task['name'], 0) + 1
-
-    if dp[min_time] == float('inf'):
-        return None
-    
-    return task_selection[min_time]
 
 if __name__ == '__main__':
     app.run(debug=True)

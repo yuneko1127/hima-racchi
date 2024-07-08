@@ -3,32 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タスク入力フォーム</title>
+    <title>Home - 隙間時間</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
     <header>
-        <h1>タスク管理アプリ</h1>
+        <h1>隙間時間</h1>
     </header>
     <main>
         <section>
-            <h2>タスクを入力してください</h2>
+            <h2>隙間時間にしたいタスクを追加</h2>
             <form action="/add_task" method="post">
                 <input type="text" name="task_name" placeholder="タスク名" required>
                 <input type="number" name="task_time" placeholder="タスク時間（分）" required>
                 <button type="submit">追加</button>
             </form>
+            <a href="/tasks" class="button">タスク一覧を見る</a>
         </section>
         <section>
-            <h2>予定を作成</h2>
+            <h2>予定を生成</h2>
             <form action="/plan" method="post">
-                <input type="number" name="min_time" placeholder="最小時間（分）" required>
-                <button type="submit">作成</button>
+                <input type="number" name="sukima_time" placeholder="時間（分）" required>
+                <button type="submit">生成</button>
             </form>
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 タスク管理アプリ</p>
+        <p>&copy; 2024 隙間時間</p>
     </footer>
 </body>
 </html>

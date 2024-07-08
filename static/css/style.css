@@ -27,6 +27,23 @@ main {
     margin-top: 20px;
 }
 
+.button {
+    display: inline-block;
+    background-color: #1976d2;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button:hover {
+    background-color: #1565c0;
+}
+
+
 section {
     background: #fff;
     margin-bottom: 20px;
