@@ -30,6 +30,10 @@ def delete_task(index):
 def create_plan():
     sukima_time = int(request.form['sukima_time'])
     plan = []
+    min_time = tasks[0]["time"]
+    for task in tasks:
+        if task["time"] < min_time:
+            min_time = task["time"]
     tasks_kyukei = [{'name': '休憩', 'time': 1}]
     tasks_kyukei.extend(tasks)
     
@@ -41,9 +45,18 @@ def create_plan():
         
         if filtered_tasks:
             random_task = random.choice(filtered_tasks)
-            print(random_task) #デバッグ
-            plan.append(random_task)
-            sukima_time -= random_task['time']
+            if random_task["name"] == "休憩":
+                plan.append(random_task)
+                sukima_time -= random_task["time"]
+            elif sukima_time - random_task["time"] < min_time:
+                do_task = {"name": random_task["name"], "time": sukima_time}
+                plan.append(do_task)
+                sukima_time -= do_time
+            else:
+                do_time = random_task["time"] + random.randint(0, sukima_time - random_task["time"])
+                do_task = {'name': random_task["name"], 'time': do_time}
+                plan.append(do_task)
+                sukima_time -= do_time
         else:
             break
     
