@@ -41,7 +41,6 @@ def create_plan():
         
         if filtered_tasks:
             random_task = random.choice(filtered_tasks)
-            print(random_task) #デバッグ
             plan.append(random_task)
             sukima_time -= random_task['time']
         else:
