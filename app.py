@@ -29,6 +29,15 @@ def delete_task(index):
 @app.route('/plan', methods=['POST'])
 def create_plan():
     sukima_time = int(request.form['sukima_time'])
+    plan = generate_plan(sukima_time)
+    return render_template('plan.html', plan=plan, sukima_time=sukima_time)
+
+@app.route('/regenerate_plan/<int:sukima_time>', methods=['GET'])
+def regenerate_plan(sukima_time):
+    plan = generate_plan(sukima_time)
+    return render_template('plan.html', plan=plan, sukima_time=sukima_time)
+
+def generate_plan(sukima_time):
     plan = []
     min_time = tasks[0]["time"]
     for task in tasks:
@@ -60,8 +69,7 @@ def create_plan():
         else:
             break
     
-    return render_template('plan.html', plan=plan)
-
+    return plan
 
 if __name__ == '__main__':
     app.run(debug=True)

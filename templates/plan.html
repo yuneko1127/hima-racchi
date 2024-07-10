@@ -12,7 +12,7 @@
     </header>
     <main>
         <section>
-            <h2>以下のタスクが選ばれました</h2>
+            <h2>以下のタスクが選ばれました({{ sukima_time }}分)</h2>
             <ul class="task-list">
                 {% if plan %}
                     {% for task in plan %}
@@ -25,7 +25,10 @@
                     <li>適切なタスクの組み合わせが見つかりませんでした。</li>
                 {% endif %}
             </ul>
-            <a href="/" class="button">戻る</a>
+            <form action="/regenerate_plan/{{sukima_time}}" method="GET">
+                <button type="submit">前回と同じ時間で再生成</button>
+            </form>
+            <a href="/" class="button">ホームに戻る</a>
         </section>
     </main>
     <footer>
