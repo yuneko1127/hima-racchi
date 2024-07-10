@@ -45,10 +45,6 @@ def create_plan():
         
         if filtered_tasks:
             random_task = random.choice(filtered_tasks)
-<<<<<<< HEAD
-            plan.append(random_task)
-            sukima_time -= random_task['time']
-=======
             if random_task["name"] == "休憩":
                 plan.append(random_task)
                 sukima_time -= random_task["time"]
@@ -61,7 +57,6 @@ def create_plan():
                 do_task = {'name': random_task["name"], 'time': do_time}
                 plan.append(do_task)
                 sukima_time -= do_time
->>>>>>> practice
         else:
             break
     
