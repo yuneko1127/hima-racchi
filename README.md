@@ -9,6 +9,6 @@ Sukima-timeは、隙間時間を無駄にしないためのWebアプリです。
 
 ### Localでの実行
 1. このリポジトリをCloneしてください。
-2. Pythonが実行できる環境を整えてください。(仮想環境推奨)
+2. Python, pipが実行できる環境を整えてください。([参考](https://www.python.jp/install/install.html))
 3. `pip install -r requirement.txt` を実行してください。
 4. `flask run` を実行することで利用できます。
