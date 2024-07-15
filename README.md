@@ -4,7 +4,9 @@ Sukima-timeは、隙間時間を無駄にしないためのWebアプリです。
 
 ## 使い方
 ### Remoteでの実行
-[https://sukima-time.azurewebsites.net/](https://sukima-time.azurewebsites.net/)にアクセスすることで実行できます。
+[https://sukima-time.azurewebsites.net/](https://sukima-time.azurewebsites.net/)にアクセスすることで実行できます。<br>
+時間によってサーバーを停止していることがあります。
+
 ### Localでの実行
 1. このリポジトリをCloneしてください。
 2. Pythonが実行できる環境を整えてください。(仮想環境推奨)
