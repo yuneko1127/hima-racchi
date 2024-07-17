@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>タスク一覧 - 隙間時間</title>
+    <title>タスク一覧 - スキマ時間</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 </head>
 <body>
@@ -12,7 +12,7 @@
     </header>
     <main>
         <section>
-            <h2>隙間時間にしたいタスクを追加</h2>
+            <h2>スキマ時間にしたいタスクを追加</h2>
             <form action="/add_task" method="post">
                 <input type="text" name="task_name" placeholder="タスク名" required>
                 <input type="number" name="task_time" placeholder="タスク時間（分）" required>
@@ -34,7 +34,7 @@
         </section>
     </main>
     <footer>
-        <p>&copy; 2024 隙間時間</p>
+        <p>&copy; 2024 スキマ時間</p>
     </footer>
 </body>
 </html>
